@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "327014864888",
+    "project_id": "loveshop-fdca2",
+    "storage_bucket": "loveshop-fdca2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327014864888:android:a4f56132ddaeb88b7ae80d",
+        "android_client_info": {
+          "package_name": "com.loveshop.shopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327014864888-uimpvbs2e1s43fdudsbp6nfldd0s1gsv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5oOV_Rk1diSVYT3AyuAkvZVmHufkBYvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327014864888-uimpvbs2e1s43fdudsbp6nfldd0s1gsv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
