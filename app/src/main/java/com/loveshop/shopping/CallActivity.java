@@ -18,10 +18,5 @@ public class CallActivity extends AppCompatActivity {
         setContentView(R.layout.activity_call);
     }
 
-    @NonNull
-    public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_call,parent,false);
-        CartViewHolder holder = new CartViewHolder(view);
-        return holder;
-    }
+
 }
