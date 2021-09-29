@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminCategoryActivity">
+    tools:context=".AdminCategoryActivity"
+    android:background="@color/white">
     <TextView
         android:id="@+id/slogan_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:text="Add New Product"
         android:textAlignment="center"
         android:textSize="26sp"
@@ -29,31 +30,27 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 
+
         <ImageView
-            android:id="@+id/t_shirts"
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:src="@drawable/tshirts"
-            />
-        <ImageView
-            android:id="@+id/sports_t_shirts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sports"
+            android:id="@+id/clothing"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+
+            android:src="@drawable/clothing"
             />
 
         <ImageView
-            android:id="@+id/female_dresses"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/female_dresses"
+            android:id="@+id/flowers"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:src="@drawable/flowers"
             />
 
         <ImageView
-            android:id="@+id/sweathers"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sweather"
+            android:id="@+id/giftcard"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:src="@drawable/giftcard"
             />
     </LinearLayout>
     <LinearLayout
@@ -64,34 +61,29 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="0dp">
+
+
 
         <ImageView
-            android:id="@+id/glasses"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/glasses"
+            android:id="@+id/gift"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:src="@drawable/gift"
             />
 
         <ImageView
-            android:id="@+id/purses_bags_wallets"
-            android:layout_width="90dp"
-            android:layout_height="80dp"
-            android:src="@drawable/purses_bags"
+            android:id="@+id/teddy"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:src="@drawable/teddy"
             />
 
         <ImageView
-            android:id="@+id/hats_caps"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/hats"
-            />
-
-        <ImageView
-            android:id="@+id/shoes"
-            android:layout_width="70dp"
-            android:layout_height="80dp"
-            android:src="@drawable/shoess"
+            android:id="@+id/accesories"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:src="@drawable/accesories"
             android:layout_marginStart="16dp"
             />
 
@@ -104,34 +96,29 @@
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="0dp">
+
+
 
         <ImageView
-            android:id="@+id/headphones_handfree"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/headphoness"
+            android:id="@+id/food"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:src="@drawable/food"
             />
 
         <ImageView
-            android:id="@+id/laptop_pc"
-            android:layout_width="90dp"
-            android:layout_height="80dp"
-            android:src="@drawable/laptops"
+            android:id="@+id/mobile"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:src="@drawable/mobile"
             />
 
         <ImageView
-            android:id="@+id/watches"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/watches"
-            />
-
-        <ImageView
-            android:id="@+id/mobilephones"
-            android:layout_width="70dp"
-            android:layout_height="80dp"
-            android:src="@drawable/mobiles"
+            android:id="@+id/book"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:src="@drawable/book"
             android:layout_marginStart="16dp"
             />
 

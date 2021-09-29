@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
 
@@ -34,80 +33,34 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ShopActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
+    private DatabaseReference ProductsRef;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
     TextView textView;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-    private ImageView DiscoverLink;
-    private ImageView CallLink;
-    private ImageView ChatLink;
-    private ImageView ShopLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_shop);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-
-
-        ImageView DiscoverLink = (ImageView) findViewById(R.id.imageView2);
-        ShopLink = (ImageView) findViewById(R.id.imageView4);
-        CallLink = (ImageView) findViewById(R.id.imageView5);
-        ChatLink = (ImageView) findViewById(R.id.imageView6);
-
-        ShopLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, ShopActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
-        DiscoverLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, DiscoverActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
-        CallLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(HomeActivity.this, CallActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        ChatLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, ChatActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
-
+        ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
         drawerLayout=findViewById(R.id.drawer_layout);
         navigationView=findViewById(R.id.nav_view);
         toolbar=findViewById(R.id.toolbar);
         androidx.appcompat.widget.Toolbar toolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("LOVE GURU");
+        toolbar.setTitle("Shop");
         setSupportActionBar(toolbar);
 
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
 
 
         View headerView = navigationView.getHeaderView(0);
@@ -124,7 +77,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this,CartActivity.class);
+                Intent intent = new Intent(ShopActivity.this,CartActivity.class);
                 startActivity(intent);
             }
         });
@@ -133,6 +86,40 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onStart() {
         super.onStart();
+        FirebaseRecyclerOptions<Products> options =
+                new FirebaseRecyclerOptions.Builder<Products>()
+                        .setQuery(ProductsRef, Products.class)
+                        .build();
+
+        FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter =
+                new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull final Products model)
+                    {
+                        holder.txtProductName.setText(model.getPname());
+                        holder.txtProductDescription.setText(model.getDescription());
+                        holder.txtProductPrice.setText("Price = " + model.getPrice() + "Rs.");
+                        Picasso.get().load(model.getImage()).into(holder.imageView);
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent =new Intent(ShopActivity.this,ProductDetailsActivity.class);
+                                intent.putExtra("pid",model.getPid());
+                                startActivity(intent);
+                            }
+                        });
+                    }
+
+                    @NonNull
+                    @Override
+                    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent, false);
+                        ProductViewHolder holder = new ProductViewHolder(view);
+                        return holder;
+                    }
+                };
+        recyclerView.setAdapter(adapter);
+        adapter.startListening();
 
     }
     @Override
@@ -176,35 +163,35 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id== R.id.nav_discover){
-            Intent intent = new Intent(HomeActivity.this,DiscoverActivity.class);
+            Intent intent = new Intent(ShopActivity.this,DiscoverActivity.class);
             startActivity(intent);
         }
         if (id== R.id.nav_chat){
-            Intent intent = new Intent(HomeActivity.this,ChatActivity.class);
+            Intent intent = new Intent(ShopActivity.this,ChatActivity.class);
             startActivity(intent);
         }
 
         if (id== R.id.nav_shop){
-            Intent intent = new Intent(HomeActivity.this,ShopActivity.class);
+            Intent intent = new Intent(ShopActivity.this,ChatActivity.class);
             startActivity(intent);
         }
 
         if (id== R.id.nav_call){
-            Intent intent = new Intent(HomeActivity.this,CallActivity.class);
+            Intent intent = new Intent(ShopActivity.this,CallActivity.class);
             startActivity(intent);
         }
 
         if (id == R.id.nav_cart) {
-            Intent intent = new Intent(HomeActivity.this,CartActivity.class);
+            Intent intent = new Intent(ShopActivity.this,CartActivity.class);
             startActivity(intent);
-
-        } else if (id == R.id.nav_settings) {
-            Intent intent=new Intent(HomeActivity.this,SettinsActivity.class);
+        }
+        else if (id == R.id.nav_settings) {
+            Intent intent=new Intent(ShopActivity.this,SettinsActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
             Paper.book().destroy();
-            Intent intent=new Intent(HomeActivity.this,MainActivity.class);
+            Intent intent=new Intent(ShopActivity.this,MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK );
             startActivity(intent);
             finish();

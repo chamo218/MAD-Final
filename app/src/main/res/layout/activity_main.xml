@@ -12,7 +12,7 @@
         android:layout_width="500dp"
         android:layout_height="400dp"
         android:layout_marginTop="0dp"
-        android:src="@drawable/lovelogo" />
+        android:src="@drawable/lovelogopink" />
 
     <TextView
         android:id="@+id/app_slogan"
@@ -24,11 +24,11 @@
         android:layout_alignParentEnd="true"
         android:layout_marginStart="50dp"
 
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="400dp"
         android:layout_marginEnd="50dp"
         android:text="Where True Love Finds You!"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold|italic" />
 
@@ -44,7 +44,7 @@
         android:background="@drawable/buttons"
         android:padding="15dp"
         android:textAllCaps="false"
-        android:textSize="13sp"
+        android:textSize="17sp"
         android:text="Already have an Account? Login"
         android:textColor="@android:color/white"
         />
@@ -55,6 +55,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/main_login_btn"
         android:layout_marginBottom="5dp"
+        android:layout_marginTop="30dp"
+
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:background="@drawable/input_design"
