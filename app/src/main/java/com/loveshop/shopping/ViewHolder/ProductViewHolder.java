@@ -35,5 +35,6 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
     {
         listner.onClick(view, getAdapterPosition(), false);
     }
+
 }
 

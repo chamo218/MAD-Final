@@ -30,7 +30,6 @@
             android:name=".HomeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".SettinsActivity" />
-        <activity android:name=".SearchProductsActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".LoginActivity" />

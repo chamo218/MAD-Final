@@ -1,5 +1,6 @@
 package com.loveshop.shopping;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 
@@ -8,8 +9,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -22,6 +21,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.loveshop.shopping.ViewHolder.AdminOrdersViewHolder;
 
 public class AdminNewOrdersActivity extends AppCompatActivity {
     private RecyclerView ordersList;
@@ -46,7 +46,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
         FirebaseRecyclerAdapter<AdminOrders, AdminOrdersViewHolder> adapter =
                 new FirebaseRecyclerAdapter<AdminOrders, AdminOrdersViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull AdminOrdersViewHolder holder, final int position, @NonNull final AdminOrders model) {
+                    protected void onBindViewHolder(@NonNull AdminOrdersViewHolder holder, @SuppressLint("RecyclerView") final int position, @NonNull final AdminOrders model) {
 
                         holder.userName.setText("Name: "+model.getName());
                         holder.userPhoneNumber.setText("Name: "+model.getPhone());
@@ -108,21 +108,6 @@ public class AdminNewOrdersActivity extends AppCompatActivity {
     }
 
 
-
-    public static class AdminOrdersViewHolder extends RecyclerView.ViewHolder{
-
-        public TextView userName, userPhoneNumber,userTotalPrice,userDateTime,userShippingAddress;
-        public Button showOrdersBtn;
-        public AdminOrdersViewHolder(View itemView) {
-            super(itemView);
-            userName = itemView.findViewById(R.id.order_user_name);
-            userPhoneNumber = itemView.findViewById(R.id.order_phone_number);
-            userTotalPrice = itemView.findViewById(R.id.order_total_price);
-            userDateTime = itemView.findViewById(R.id.order_date_time);
-            userShippingAddress = itemView.findViewById(R.id.order_address_city);
-            showOrdersBtn = itemView.findViewById(R.id.show_all_product_btn);
-        }
-    }
     private void RemoverOrder(String uID) {
         ordersRef.child(uID).removeValue();
     }

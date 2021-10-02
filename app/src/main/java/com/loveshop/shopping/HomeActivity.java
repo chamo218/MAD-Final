@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
 
-        ImageView DiscoverLink = (ImageView) findViewById(R.id.imageView2);
+        DiscoverLink = (ImageView) findViewById(R.id.imageView2);
         ShopLink = (ImageView) findViewById(R.id.imageView4);
         CallLink = (ImageView) findViewById(R.id.imageView5);
         ChatLink = (ImageView) findViewById(R.id.imageView6);
@@ -61,7 +61,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ShopLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, ShopActivity.class);
+                Intent intent = new Intent(HomeActivity.this, com.loveshop.shopping.ShopActivity.class);
                 startActivity(intent);
 
             }
@@ -70,7 +70,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         DiscoverLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, DiscoverActivity.class);
+                Intent intent = new Intent(HomeActivity.this, com.loveshop.shopping.DiscoverActivity.class);
                 startActivity(intent);
 
             }
@@ -80,7 +80,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(HomeActivity.this, CallActivity.class);
+                Intent intent = new Intent(HomeActivity.this, com.loveshop.shopping.CallActivity.class);
                 startActivity(intent);
             }
         });
@@ -88,7 +88,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ChatLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, ChatActivity.class);
+                Intent intent = new Intent(HomeActivity.this, com.loveshop.shopping.ChatActivity.class);
                 startActivity(intent);
 
             }
